@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+		<title>Indicador Jaime</title>
+    </head>
+    <body>
+        <h1>Indicador Jaime</h1>
+        
+        <p>El indicador Jaime busca cuantificar el impacto de la llegada de un jugador "franquicia" a un equipo,
+            ese decir si los resultados en la temporada inmediatamente siguiente a la llegada de un jugador rimbombante
+            son mejores, peores o iguales que en la temporada anterior.
+        </p>
+
+        <div id = "jugador">
+            <form method = "post" action = "/resultado.html">
+                <label for = "name"> Nombre:</label>
+                <input name = "name" id = "name" required />
+                <br>
+                <label for = "source"> Equipo de origen:</label>
+                <input name = "source" id = "source" required />
+                <br>
+                <label for = "target"> Equipo de destino:</label>
+                <input name = "target" id = "target" required />
+                <br>
+                <label for = "cost"> Costo:</label>
+                <input name = "cost" id = "cost" required />
+                <br>
+                <input type = "submit" value= "Calcular" />
+            </form>
+        </div>
+
+        <div id = "liga">
+
+        </div>
+
+        <div id = "copa_nacional">
+
+        </div>
+
+        <div id = "copa_internacional">
+
+        </div>
+    </body>
