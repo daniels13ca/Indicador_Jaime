@@ -11,33 +11,50 @@
             son mejores, peores o iguales que en la temporada anterior.
         </p>
 
-        <div id = "jugador">
-            <form method = "post" action = "/resultado.html">
-                <label for = "name"> Nombre:</label>
-                <input name = "name" id = "name" required />
-                <br>
-                <label for = "source"> Equipo de origen:</label>
-                <input name = "source" id = "source" required />
-                <br>
-                <label for = "target"> Equipo de destino:</label>
-                <input name = "target" id = "target" required />
-                <br>
-                <label for = "cost"> Costo:</label>
-                <input name = "cost" id = "cost" required />
-                <br>
-                <input type = "submit" value= "Calcular" />
-            </form>
-        </div>
+        <br>    
+        <h3>Información del jugador</h2>
+
+        <div id = "jugador">  
+            <div>Nombre: <input id="name" required/></div>
+            <div>Equipo de origen: <input id="source" required/></div>
+            <div>Equipo de destino: <input id="target" required/></div>
+            <div>Año: <input type="number" id="year" min="1900" max="2050"/></div>
+            <div>Valor transferencia o prestamo: USD$<input id="cost" required/></div>
+       </div>
+
+       <br>    
+       <h3>Desempeño del equipo</h2>
 
         <div id = "liga">
-
+            <label for="league">Liga nacional:</label>
+                <select name="league" id="league">
+                    <option value="mejor">Mejoró</option>
+                    <option value="peor">Empeoró</option>
+                    <option value="igual">Se mantuvo</option>
+                </select>
         </div>
 
         <div id = "copa_nacional">
-
+            <label for="cup">Copa nacional:</label>
+            <select name="cup" id="cup">
+                <option value="mejor">Mejoró</option>
+                <option value="peor">Empeoró</option>
+                <option value="igual">Se mantuvo</option>
+            </select>
         </div>
 
         <div id = "copa_internacional">
+            <label for="international">Copa internacional:</label>
+            <select name="international" id="international">
+                <option value="mejor">Mejoró</option>
+                <option value="peor">Empeoró</option>
+                <option value="igual">Se mantuvo</option>
+            </select>
+        </div>
 
+
+        <br>
+        <div id= "calculate">
+            <button id="calculate">Calcular impacto</button>
         </div>
     </body>
