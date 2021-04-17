@@ -2,28 +2,35 @@
     <head>
         <meta charset="utf-8">
 		<title>Indicador Jaime</title>
+
+        <link href="style.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
+        <script src="d3.js"></script>
+
     </head>
+
     <body>
         <h1>Indicador Jaime</h1>
         
         <p>El indicador Jaime busca cuantificar el impacto de la llegada de un jugador "franquicia" a un equipo,
-            ese decir si los resultados en la temporada inmediatamente siguiente a la llegada de un jugador rimbombante
+            es decir si los resultados en la temporada inmediatamente siguiente a la llegada de un jugador rimbombante
             son mejores, peores o iguales que en la temporada anterior.
         </p>
-
-        <br>    
-        <h3>Información del jugador</h2>
+   
+        <h2>Información del jugador</h2>
 
         <div id = "jugador">  
-            <div>Nombre: <input id="name" required/></div>
-            <div>Equipo de origen: <input id="source" required/></div>
-            <div>Equipo de destino: <input id="target" required/></div>
-            <div>Año: <input type="number" id="year" min="1900" max="2050"/></div>
-            <div>Valor transferencia o prestamo: USD$<input id="cost" required/></div>
+            <div><label>Nombre:</label> <input id="name" required/></div>
+            <div><label>Equipo de origen: </label><input id="source" required/></div>
+            <div><label>Equipo de destino: </label><input id="target" required/></div>
+            <div><label>Año: </label><input type="number" id="year" min="1900" max="2050"/></div>
+            <div><label>Valor transferencia o prestamo: USD$</label><input id="cost" required/></div>
        </div>
 
        <br>    
-       <h3>Desempeño del equipo</h2>
+       <h2>Desempeño del equipo</h2>
 
         <div id = "liga">
             <label for="league">Liga nacional:</label>
@@ -52,9 +59,13 @@
             </select>
         </div>
 
-
-        <br>
         <div id= "calculate">
             <button id="calculate">Calcular impacto</button>
         </div>
+
+        <svg style="border: solid 2px black">
+            <g>
+                <rect x=20 y=20 width=50 height=50></rect>
+            </g>
+        </svg>
     </body>
