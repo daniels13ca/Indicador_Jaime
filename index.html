@@ -25,11 +25,11 @@
         <h2>Información del jugador</h2>
 
         <div id = "jugador">  
-            <div><label>Nombre:</label> <input id="name" required/></div>
-            <div><label>Equipo de origen: </label><input id="source" required/></div>
-            <div><label>Equipo de destino: </label><input id="target" required/></div>
-            <div><label>Año: </label><input type="number" id="year" min="1900" max="2050"/></div>
-            <div><label>Valor transferencia o prestamo: USD$</label><input id="cost" required/></div>
+            <label>Nombre:</label> <input id="name" required/>
+            <label>Equipo de origen: </label><input id="source" required/>
+            <label>Equipo de destino: </label><input id="target" required/>
+            <label>Año: </label><input type="number" id="year" min="1900" max="2050"/>
+            <label>Valor transferencia o prestamo: USD$</label><input id="cost" required/>
        </div>
 
        <br>    
@@ -65,8 +65,9 @@
         <div id= "calculate">
             <button id="calculate">Calcular impacto</button>
         </div>
+        
 
-        <svg style="border: solid 2px black">
+        <svg id= "container" style="border: solid 2px black">
             <g>
                 <rect x=100 y=20 width=100 height=20 stroke="none" fill="red"></rect>
                 <rect x=200 y=20 width=100 height=20 stroke="none" fill="yellow"></rect>
@@ -74,6 +75,32 @@
                 <text X=90 y= 60>-1</text>
                 <text X=250 y= 60>0</text>
                 <text X=395 y= 60>1</text>
+
+                <text id= "#final_text" x=90 y= 200>Prueba</text> 
             </g>
         </svg>
     </body>
+
+    <script>
+
+        let body = d3.select("#body")
+
+        d3.select("#calculate").on("click",function() {
+            let name = d3.select("#name").node().value;
+            let source = d3.select("#source").node().value;
+            let target = d3.select("#target").node().value;
+            let year = d3.select("#year").node().value;
+            let cost = d3.select("#cost").node().value;
+
+            let impact = "La transferencia de " + name + " desde el equipo " + source + " hacia " + target + " por valor de " + cost.toString() + 
+            " dolares, en el año  " + year.toString();
+            
+            console.log(impact);
+
+            //d3.select("#final_text").property("text", impact);
+            //d3.select("#final_text.text").text(impact);
+            //https://jsbin.com/yujolugude/1/edit?js,output
+        })        
+
+
+    </script>
