@@ -18,8 +18,8 @@
             se espera que en la temporada siguiente los resultados del equipo mejoren, es decir se ubique en posiciones más altas en 
             las competencias en las que participe.
             <br>
-            El indicador Jaime pretende evaluar el impacto de este tipo de contrataciones El indicador Jaime pretende evaluar el 
-            impacto de este tipo de contrataciones en el resultado global del equipo asignando un valor normalizado entre -1 y 1.
+            El indicador Jaime pretende evaluar el impacto de este tipo de contrataciones en el resultado global del equipo asignando 
+            un valor normalizado entre -1 y 1.
         </p>
    
         <h2>Información del jugador</h2>
@@ -40,7 +40,7 @@
                 <select name="league" id="league">
                     <option value="mejor">Mejoró</option>
                     <option value="peor">Empeoró</option>
-                    <option value="igual">Se mantuvo</option>
+                    <option value="igual" selected="selected">Se mantuvo</option>
                 </select>
         </div>
 
@@ -49,7 +49,7 @@
             <select name="cup" id="cup">
                 <option value="mejor">Mejoró</option>
                 <option value="peor">Empeoró</option>
-                <option value="igual">Se mantuvo</option>
+                <option value="igual" selected="selected">Se mantuvo</option>
             </select>
         </div>
 
@@ -58,7 +58,7 @@
             <select name="international" id="international">
                 <option value="mejor">Mejoró</option>
                 <option value="peor">Empeoró</option>
-                <option value="igual">Se mantuvo</option>
+                <option value="igual" selected="selected">Se mantuvo</option>
             </select>
         </div>
 
@@ -76,7 +76,6 @@
                 <text X=250 y= 60>0</text>
                 <text X=395 y= 60>1</text>
 
-                <text id= "#final_text" x=90 y= 200>Prueba</text> 
             </g>
         </svg>
     </body>
@@ -92,14 +91,48 @@
             let year = d3.select("#year").node().value;
             let cost = d3.select("#cost").node().value;
 
+            var league = document.getElementById("league");
+            var league = league.options[league.selectedIndex].text;
+
+            var cup = document.getElementById("cup");
+            var cup = cup.options[cup.selectedIndex].text;
+
+            var international = document.getElementById("international");
+            var international = international.options[international.selectedIndex].text;
+
+            var svg = d3.select("#container")
+
+            var result = "nulo";
+            var value = 0;
+            var pos_x = 150;
+
+            svg.append("text")
+	            .attr("text-anchor", "center")
+	            .attr("x", 150)
+	            .attr("y", 200)
+	            .text("El jugador tuvo un impacto " + result);
+
+            svg.append("text")
+	            .attr("text-anchor", "center")
+	            .attr("x", 240)
+	            .attr("y", 140)
+                .attr("font-size", 60)
+	            .text(value.toString());
+
+            svg.append("line")
+                .style("stroke", "black")
+                .style("stroke-width", 2)
+                .attr("x1", pos_x)
+                .attr("y1", 5)
+                .attr("x2", pos_x)
+                .attr("y2", 55);
+
+
             let impact = "La transferencia de " + name + " desde el equipo " + source + " hacia " + target + " por valor de " + cost.toString() + 
-            " dolares, en el año  " + year.toString();
+            " dolares, en el año  " + year.toString() + " tuvo un impacto de " + value;
             
             console.log(impact);
-
-            //d3.select("#final_text").property("text", impact);
-            //d3.select("#final_text.text").text(impact);
-            //https://jsbin.com/yujolugude/1/edit?js,output
+                
         })        
 
 
