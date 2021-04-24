@@ -72,9 +72,9 @@
                 <rect x=100 y=20 width=100 height=20 stroke="none" fill="red"></rect>
                 <rect x=200 y=20 width=100 height=20 stroke="none" fill="yellow"></rect>
                 <rect x=300 y=20 width=100 height=20 stroke="none" fill="green"></rect>
-                <text X=90 y= 60>-1</text>
-                <text X=250 y= 60>0</text>
-                <text X=395 y= 60>1</text>
+                <text X=90 y= 70>-1</text>
+                <text X=245 y= 70>0</text>
+                <text X=395 y= 70>1</text>
 
             </g>
         </svg>
@@ -104,9 +104,12 @@
 
             var result = "nulo";
             var value = 0;
-            var pos_x = 150;
 
             value = calcular_impacto(league, cup, international);
+
+            value = escala_puntaje(value).toFixed(2);
+
+            var pos_x = escaña_barra(value);
 
             if (value > 0){
                 result= "positivo";
@@ -181,5 +184,13 @@
 
             return final_val;
         }
+
+        var escala_puntaje = d3.scaleLinear()
+            .domain([-3, 3])
+            .range([-1, 1]);
+
+        var escaña_barra = d3.scaleLinear()
+            .domain([-1, 1])
+            .range([100, 400]);
 
     </script>
